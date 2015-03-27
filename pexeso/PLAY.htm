@@ -1,0 +1,252 @@
+<html>
+<style>
+.block{background:yellow; width:5em; height:5em;border:2px solid black;display:inline-block;box-shadow: 1px  1px  5px  black;}
+#button{background:green; box-shadow: 1px  1px  5px  black;}
+@-webkit-keyframes myfirst{from{-webkit-transform:rotateY(0deg);}to{-webkit-transform:rotateY(360deg);}}
+
+@-webkit-keyframes myfirst1{from{-webkit-transform:rotateZ(0deg);}to{-webkit-transform:rotateZ(720deg);}}
+
+@-webkit-keyframes mysecond{from{-webkit-transform:rotateY(360deg);}to{-webkit-transform:rotateY(0deg);}}
+
+
+
+@-webkit-keyframes mythird{from{-webkit-transform:scale(1,1);}to{-webkit-transform:scale(0,0);}}
+
+.cls1{-webkit-animation:myfirst .5s; -webkit-animation-fill-mode: forwards;}
+
+.cls2{-webkit-animation:mysecond .5s; -webkit-animation-fill-mode: forwards;background:yellow;}
+
+.cls3{-webkit-animation:mythird .5s; -webkit-animation-fill-mode: forwards;}
+
+.cls4{-webkit-transform:scale(1,1);}
+
+.cls5{-webkit-animation:myfirst1 1s; -webkit-animation-fill-mode: forwards;}
+
+
+</style>
+<body>
+
+  <div id="t" class="badge" style="margin-left :38em; display:inline-block">00:00</div>
+  <a id ="pp"style="margin-left:2em" >No. Of Moves = 0</a>
+
+  <div style="margin-left:23em">
+  <div id="0" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="1"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="2" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="3"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="4" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="5"class="block" onClick ="reply_click(this.id)"></div>
+  <br>
+  <div id ="6"class="block" onClick ="reply_click(this.id)"></div>
+  <div id = "7"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="8" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="9"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="10" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="11"class="block" onClick ="reply_click(this.id)"></div>
+  <br>
+  <div id ="12"class="block" onClick ="reply_click(this.id)"></div>
+  <div id = "13"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="14" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="15"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="16" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="17"class="block" onClick ="reply_click(this.id)"></div>
+  <br>
+  <div id ="18"class="block" onClick ="reply_click(this.id)"></div>
+  <div id = "19"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="20" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="21"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="22" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="23"class="block" onClick ="reply_click(this.id)"></div>
+  <br>
+  <div id ="24"class="block" onClick ="reply_click(this.id)"></div>
+  <div id = "25"class="block" onClick ="reply_click(this.id)"></div>
+  <div id ="26"class="block" onClick ="reply_click(this.id)"></div>
+  <div id ="27"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="28" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="29"class="block" onClick ="reply_click(this.id)"></div>
+  <br>
+  <div id ="30"class="block" onClick ="reply_click(this.id)"></div>
+  <div id = "31"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="32" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="33"class="block" onClick ="reply_click(this.id)"></div>
+  <div id="34" class ="block" onClick="reply_click(this.id)"></div>
+  <div id ="35"class="block" onClick ="reply_click(this.id)"></div>
+  </div>
+  <br>
+  <div id= "button" style = "border:1px solid black ; float:left; width:6em;margin-left :37em" ><a href="#" id = "gg" style ="text-decoration:none; padding-left:1em;padding-right:1em">SHUFFLE</a></div>
+  <br>
+<a id = "timet"></a>
+</body>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="dist/timer.jquery.min.js"></script>
+<script type="text/javascript">
+
+var im = ["url('a.jpg')","url('b.jpg')","url('c.jpg')","url('d.jpg')","url('e.jpg')","url('f.jpg')","url('g.jpg')","url('h.jpg')","url('i.jpg')","url('j.jpg')","url('k.jpg')","url('l.jpg')","url('m.jpg')","url('n.jpg')","url('o.jpg')","url('p.jpg')","url('q.jpg')","url('r.jpg')"]; 
+
+var count =36;
+var flag = 0;   
+var flagifopen = new Array(36);
+for(var i = 0; i< 36; i++)
+  flagifopen[i.toString()] = 0;
+
+$(document).ready(function(){
+  $("div").removeClass("cls3");$("div").addClass("cls4");
+});
+
+var prev;
+var prev_id1;
+var prev_id2;
+var i=0;
+var j =1;
+var b = new Array(36);
+var nomoves = 0;
+
+
+
+rand();
+
+$("#gg").click(function(){
+  location.reload();
+});
+
+
+function rand(){
+/*$("#t").timer( 'pause');
+$("#t").removeClass("badge-important");
+$("input[name='s']").attr("enabled", "enabled");
+document.getElementById("t").innerHTML = "00:00";
+document.getElementById("gg").innerHTML = "RESET";*/
+  var x = document.getElementsByClassName("block");
+  for(i = 0; i<36; i++){
+    x[i].style.background = "yellow";
+    flagifopen[i.toString()] = 0;
+  }
+/*$(document).ready(function(){$(".block").removeClass("cls3");
+  $(".block").addClass("cls4");
+});*/
+
+$(document).ready(function(){
+  $(".block").addClass("cls5");
+});
+
+count =36;
+flag = 0;   
+i=0;
+j =1;
+nomoves = 0;
+var a = new Array(18);
+
+for(var i = 0; i< 18; i++)
+  a[i] = 0;
+var f;
+var i = 36;
+while( i --){
+  var ra = Math.floor((Math.random() * 100)%18 );
+/*document.getElementById("pp").innerHTML = ra;*/
+	if(a[ra] === 2)
+	 i++;
+	else{
+	 a[ra]++;
+	 b[(36-i-1).toString()] = ra;
+  }
+}
+/*for(i = 0; i< 36; i++)
+
+document.getElementById("pp").innerHTML += b[i.toString()] + '  ';*/
+
+}
+
+function reply_click(clicked_id)
+{
+
+ if(flagifopen[clicked_id]===0){
+    var id1; var id2;
+    ++nomoves;
+    if(nomoves===1){$("#t").timer({
+      action: 'start', 
+      seconds: 0
+    });
+
+    $("input[name='s']").attr("disabled", "disabled");
+    $("#t").addClass("badge-important");}
+ 
+    document.getElementById("pp").innerHTML = "No. Of Moves = " + nomoves ;
+    var ids = "#"+clicked_id;
+    $(document).ready(function(){
+	
+      $(ids).removeClass("cls2");$(ids).removeClass("cls5");$(ids).addClass("cls1");
+  
+    });
+
+    document.getElementById(clicked_id).style.backgroundImage = im[b[clicked_id]];
+    document.getElementById(clicked_id).style.backgroundSize="100% 100%";
+  
+
+
+    if(i === 1){
+      if(flag === 0  ){ 
+        if(j === 0){
+            id1 = "#"+prev_id1;
+            id2= "#"+prev_id2;
+            $(document).ready(function(){
+	
+              $(id1).removeClass("cls1");$(id1).addClass("cls2");
+              $(id2).removeClass("cls1");$(id2).addClass("cls2");
+            });
+
+            document.getElementById(prev_id1).style.background = "yellow";
+            document.getElementById(prev_id2).style.background = "yellow"; 
+	         flagifopen[prev_id1]=0;
+	         flagifopen[prev_id2]=0;
+        }
+/*else if(j === 1){   id1 = "#"+prev_id1;
+		 id2= "#"+ prev_id2; 
+		$(document).ready(function(){$(id1).addClass("cls3");
+  					$(id2).addClass("cls3");
+								});}*/
+    
+      }  
+    }
+
+    count--;
+    flag++; 
+    flagifopen[clicked_id]=1;
+    if(flag===2){
+      if(b[clicked_id] !== prev){
+          count = count+2;
+          flag = 0; j = 0;
+	
+      }else{ 
+        flag=0; j =1;  id1 = "#"+prev_id1;
+		    id2= "#"+ clicked_id; 
+		    $(document).ready(function(){$(id1).addClass("cls3");
+  				  $(id2).addClass("cls3");
+			 });
+      }
+    }
+
+    prev = b[clicked_id];
+    prev_id2 = prev_id1;
+    prev_id1 = clicked_id;
+    i =1;
+
+    if(count === 0){
+      $("#t").timer( 'pause');
+      $("#t").removeClass("badge-important");
+    }   
+  }  
+    
+    
+}
+    
+</script>
+
+
+    
+
+
+
+

@@ -1,0 +1,40 @@
+<html>
+<body>
+
+<div id= "button" style = "border:1px solid black ; float:left; width:5em" ><a id = "gg" onclick =rand()>SET</a></div>
+<p id ="pp"  ></p>
+<button type="button" >START</button>
+</body>
+<script type="text/javascript">
+
+
+
+
+var b = new Array(36);
+
+
+function rand(){
+document.getElementById("gg").innerHTML = "RESET";
+var a = new Array(18);
+
+for(var i = 0; i< 18; i++)
+a[i] = 0;
+var f;
+var i = 36;
+while( i --){
+var ra = Math.floor((Math.random() * 100)%18 );
+/*document.getElementById("pp").innerHTML = ra;*/
+	if(a[ra] === 2)
+	i++;
+	else{
+	a[ra]++;
+	b[(36-i-1).toString()] = ra;
+}
+}
+for(i = 0; i< 36; i++)
+
+document.getElementById("pp").innerHTML += b[i.toString()] + '  ';
+
+}
+</script>
+<html>
